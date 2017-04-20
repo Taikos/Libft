@@ -6,13 +6,14 @@
 #    By: arguerin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/10 19:08:44 by arguerin          #+#    #+#              #
-#    Updated: 2017/04/18 16:57:38 by arguerin         ###   ########.fr        #
+#    Updated: 2017/04/20 15:27:18 by arguerin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = ft_bzero.c \
+SRCS = ft_memset.c \
+	  ft_bzero.c \
 	  ft_memcpy.c \
 	  ft_memccpy.c \
 	  ft_memmove.c \
@@ -75,10 +76,13 @@ OBJ = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) :
-	@gcc -Wall -Wextra -Werror -c $(SRCS)
+$(NAME) : $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+
+%.o : %.c
+	@gcc -Wall -Wextra -Werror -c $<
+
 
 clean :
 	@rm -f $(OBJ)
@@ -87,3 +91,5 @@ fclean : clean
 	@rm -f $(NAME)
 
 re : fclean all
+
+.PHONY: clean fclean re

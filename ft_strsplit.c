@@ -6,13 +6,13 @@
 /*   By: arguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 09:12:28 by arguerin          #+#    #+#             */
-/*   Updated: 2017/04/18 19:22:14 by arguerin         ###   ########.fr       */
+/*   Updated: 2017/04/20 16:54:23 by arguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_insert(char const *s, char c, int i, char **dest)
+static char	**ft_insert(char const *s, char c, int i, char **dest)
 {
 	int a;
 	int j;
@@ -40,7 +40,7 @@ char	**ft_insert(char const *s, char c, int i, char **dest)
 	return (dest);
 }
 
-int		ft_l_cnt(char const *s, char c, int i)
+static int	ft_l_cnt(char const *s, char c, int i)
 {
 	int a;
 	int j;
@@ -68,7 +68,7 @@ int		ft_l_cnt(char const *s, char c, int i)
 	return (0);
 }
 
-int		ft_w_count(char const *s, char c)
+static int	ft_w_count(char const *s, char c)
 {
 	int i;
 	int word;
@@ -89,7 +89,7 @@ int		ft_w_count(char const *s, char c)
 	return (word);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**dest;
 	int		word;
