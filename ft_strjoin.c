@@ -20,12 +20,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	k;
 	size_t	l;
 
+	if (!(s1) || !(s2))
+		return (NULL);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
 	k = 0;
 	l = 0;
-	if (!s1 || !s2)
-		return (NULL);
 	if (!(dest = (char *)malloc(sizeof(char) * (i + j))))
 		return (NULL);
 	while (s1[l])

@@ -14,17 +14,26 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
-	size_t sid;
-	size_t sis;
+	char		*tdest;
+	const char	*tsrc;
+	size_t		i;
+	size_t		sid;
+	size_t		sis;
 
-	sid = ft_strlen(dest);
+	tdest = dest;
+	tsrc = src;
+	i = 0;
+ 	while (i++ < n && *tdest)
+		tdest++;
+	sid = (size_t)tdest - (size_t)dest;
 	sis = ft_strlen(src);
-	if (n < sid)
-		return (sis + n);
-	else if (sid < n)
-	{
-		ft_strncat(dest, src, n);
-		dest[n - 1] = '\0';
-	}
+	if (sid >= n)
+		return (n + sis);
+	while (sid < --n && *tsrc)	
+		*tdest++ = *tsrc++;
+	while (*tsrc)
+		tsrc++;
+	*tdest = '\0';
+	sis = (size_t)tsrc - (size_t)src;
 	return (sid + sis);
 }

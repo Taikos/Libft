@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s)
 	int		i;
 	int		j;
 
+	if (!(s))
+		return (NULL);
 	len = ft_strlen(s);
 	i = 0;
 	j = 0;
