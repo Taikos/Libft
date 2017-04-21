@@ -6,7 +6,7 @@
 /*   By: arguerin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 11:28:32 by arguerin          #+#    #+#             */
-/*   Updated: 2017/04/18 19:56:07 by arguerin         ###   ########.fr       */
+/*   Updated: 2017/04/21 15:23:07 by arguerin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 	tdest = dest;
 	tsrc = src;
 	i = 0;
- 	while (i++ < n && *tdest)
+	while ((i++ < n) && *tdest)
 		tdest++;
 	sid = (size_t)tdest - (size_t)dest;
 	sis = ft_strlen(src);
 	if (sid >= n)
 		return (n + sis);
-	while (sid < --n && *tsrc)	
+	while ((sid < --n) && *tsrc)
 		*tdest++ = *tsrc++;
 	while (*tsrc)
 		tsrc++;
